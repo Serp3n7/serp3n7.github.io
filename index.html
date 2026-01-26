@@ -1,63 +1,36 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sumit M. Bide | Cyber Defense Portfolio</title>
     
-    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
                         heading: ['"Space Grotesk"', 'sans-serif'],
-                        body: ['"Inter"', 'sans-serif'],
-                        code: ['"JetBrains Mono"', 'monospace'],
+                        mono: ['"Space Mono"', 'monospace'],
                     },
                     colors: {
-                        dark: '#050505',
-                        light: '#f8fafc',
-                        accent: '#3b82f6', 
-                    },
-                    animation: {
-                        'blob': 'blob 10s infinite',
-                        'fade-in': 'fadeIn 0.8s ease-out forwards',
-                        'blink': 'blink 1s step-end infinite',
-                        'spin-slow': 'spin 8s linear infinite',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        blink: {
-                            '0%, 100%': { opacity: '1' },
-                            '50%': { opacity: '0' },
-                        }
+                        'brutal-yellow': '#FFED4E',
+                        'brutal-pink': '#FF6AC2',
+                        'brutal-blue': '#00B4FF',
+                        'brutal-green': '#39FF14',
+                        'brutal-red': '#FF3864',
+                        'brutal-purple': '#B800FF',
                     }
                 }
             }
         }
     </script>
-    
-    <!-- Babel -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-    <!-- Import Map -->
     <script type="importmap">
     {
       "imports": {
@@ -69,77 +42,139 @@
     </script>
     
     <style>
-        /* CSS Variables */
-        :root {
-            --bg-color: #f8fafc;
-            --text-color: #0f172a;
-            --glass-bg: rgba(255, 255, 255, 0.75);
-            --glass-border: rgba(0, 0, 0, 0.08);
-            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-            --scroll-track: #f1f5f9;
-            --scroll-thumb: #93c5fd;
-            --scroll-hover: #3b82f6;
-        }
-
-        .dark {
-            --bg-color: #020202;
-            --text-color: #e5e5e5;
-            --glass-bg: rgba(20, 20, 25, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.08);
-            --glass-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-            --scroll-track: #050505;
-            --scroll-thumb: #3b82f6;
-            --scroll-hover: #60a5fa;
+        * {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-            cursor: none; 
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: var(--scroll-track); }
-        ::-webkit-scrollbar-thumb { 
-            background: var(--scroll-thumb); 
-            border-radius: 4px; 
-            border: 2px solid var(--scroll-track);
-        }
-        .dark ::-webkit-scrollbar-thumb {
-            box-shadow: 0 0 15px 2px rgba(59, 130, 246, 0.5);
-        }
-        ::-webkit-scrollbar-thumb:hover { background: var(--scroll-hover); }
-
-        .glass-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--glass-shadow);
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .glass-card:hover {
-            transform: translateY(-4px);
-            border-color: rgba(59, 130, 246, 0.3);
-        }
-        
-        .dark .glass-card:hover {
-            background: rgba(255, 255, 255, 0.05);
-            box-shadow: 0 10px 40px -10px rgba(59, 130, 246, 0.15);
+            background-color: #FFFEF2;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+            transition: background-color 0.3s ease;
         }
 
-        .text-gradient {
-            background: linear-gradient(to right, #3b82f6, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        body.dark-mode {
+            background-color: #1a1a1a;
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
         }
-        .dark .text-gradient {
-            background: linear-gradient(to right, #fff, #94a3b8);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        .dark-mode .neo-brutal-card {
+            border-color: #FFED4E;
+            box-shadow: 8px 8px 0 0 #FFED4E;
+        }
+
+        .dark-mode .neo-brutal-card:hover {
+            box-shadow: 12px 12px 0 0 #FFED4E;
+        }
+
+        .dark-mode .neo-brutal-card:active {
+            box-shadow: 4px 4px 0 0 #FFED4E;
+        }
+
+        .dark-mode .neo-brutal-btn {
+            border-color: #FFED4E;
+            box-shadow: 6px 6px 0 0 #FFED4E;
+        }
+
+        .dark-mode .neo-brutal-btn:hover {
+            box-shadow: 8px 8px 0 0 #FFED4E;
+        }
+
+        .dark-mode .neo-brutal-btn:active {
+            box-shadow: 3px 3px 0 0 #FFED4E;
+        }
+
+        .dark-mode .badge-brutal {
+            border-color: #FFED4E;
+            box-shadow: 3px 3px 0 0 #FFED4E;
+        }
+
+        .dark-mode .badge-brutal:hover {
+            box-shadow: 4px 4px 0 0 #FFED4E;
+        }
+
+        .neo-brutal-card {
+            border: 4px solid #000;
+            box-shadow: 8px 8px 0 0 #000;
+            transition: all 0.15s ease;
+        }
+
+        .neo-brutal-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 12px 12px 0 0 #000;
+        }
+
+        .neo-brutal-card:active {
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0 0 #000;
+        }
+
+        .neo-brutal-btn {
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0 0 #000;
+            transition: all 0.1s ease;
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+
+        .neo-brutal-btn:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 8px 8px 0 0 #000;
+        }
+
+        .neo-brutal-btn:active {
+            transform: translate(3px, 3px);
+            box-shadow: 3px 3px 0 0 #000;
+        }
+
+        .terminal-brutal {
+            border: 4px solid #000;
+            box-shadow: 6px 6px 0 0 #39FF14;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .badge-brutal {
+            border: 3px solid #000;
+            box-shadow: 3px 3px 0 0 #000;
+            transition: all 0.1s ease;
+        }
+
+        .badge-brutal:hover {
+            transform: translate(-1px, -1px);
+            box-shadow: 4px 4px 0 0 #000;
+        }
+
+        ::-webkit-scrollbar {
+            width: 16px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #FFFEF2;
+            border-left: 4px solid #000;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #000;
+            border: 3px solid #FFFEF2;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF3864;
+        }
+
+        .skew-brutal {
+            transform: skew(-2deg);
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+
+        .animate-wiggle:hover {
+            animation: wiggle 0.3s ease-in-out infinite;
         }
     </style>
 </head>
@@ -150,76 +185,75 @@
         import React, { useState, useEffect, useRef } from 'react';
         import ReactDOM from 'react-dom/client';
         import { 
-            Shield, Terminal, Server, Cpu, Globe, Lock, 
-            Activity, Mail, Github, Linkedin, Award, Book,
-            MapPin, ArrowUpRight, Copy, Check, Download, FileText,
-            Sun, Moon, Code, Bug, AlertTriangle, Crosshair
+            Shield, Terminal, Server, Award, Book,
+            Mail, Github, Linkedin, Download, 
+            Bug, Code, Activity, Lock, MapPin, Zap,
+            Copy, Check, ArrowUpRight, Crosshair
         } from 'lucide-react';
 
-        const PortfolioBento = () => {
+        const NeoBrutalistPortfolio = () => {
             const [copied, setCopied] = useState(false);
-            const [cursorVariant, setCursorVariant] = useState("default");
-            const [theme, setTheme] = useState('dark');
-            
-            // Terminal State
+            const [darkMode, setDarkMode] = useState(false);
             const [terminalInput, setTerminalInput] = useState("");
             const [terminalOutput, setTerminalOutput] = useState([
-                { type: 'system', text: 'Initializing Serp3n7 OS v2.0...' },
-                { type: 'success', text: 'Access Granted. Welcome, Guest.' },
-                { type: 'info', text: "Type 'help' to see available commands." }
+                { type: 'system', text: '> SERP3N7_OS v3.0 INITIALIZED' },
+                { type: 'success', text: '> ACCESS GRANTED' },
+                { type: 'info', text: "> TYPE 'help' FOR COMMANDS" }
             ]);
             const terminalEndRef = useRef(null);
 
-            // Cursor refs
-            const cursorDot = useRef(null);
-            const cursorRing = useRef(null);
-
-            // Theme Toggle
+            // Auto-detect system theme preference
             useEffect(() => {
-                const root = window.document.documentElement;
-                if (theme === 'dark') root.classList.add('dark');
-                else root.classList.remove('dark');
-            }, [theme]);
-
-            const toggleTheme = () => setTheme(prev => prev === 'dark' ? 'light' : 'dark');
-
-            // Custom Cursor Logic
-            useEffect(() => {
-                const mouseMove = (e) => {
-                    const { clientX, clientY } = e;
-                    if (cursorDot.current) cursorDot.current.style.transform = `translate(${clientX}px, ${clientY}px)`;
-                    if (cursorRing.current) cursorRing.current.animate({ transform: `translate(${clientX}px, ${clientY}px)` }, { duration: 500, fill: "forwards" });
-                };
-                window.addEventListener("mousemove", mouseMove);
-                return () => window.removeEventListener("mousemove", mouseMove);
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                setDarkMode(prefersDark);
+                
+                const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+                const handleChange = (e) => setDarkMode(e.matches);
+                mediaQuery.addEventListener('change', handleChange);
+                
+                return () => mediaQuery.removeEventListener('change', handleChange);
             }, []);
 
-            // Terminal Logic
+            // Apply dark mode class to body
+            useEffect(() => {
+                if (darkMode) {
+                    document.body.classList.add('dark-mode');
+                } else {
+                    document.body.classList.remove('dark-mode');
+                }
+            }, [darkMode]);
+
+            const toggleDarkMode = () => {
+                setDarkMode(!darkMode);
+            };
+
             const handleTerminalCommand = (e) => {
                 if (e.key === 'Enter') {
                     const cmd = terminalInput.trim().toLowerCase();
-                    let response = { type: 'error', text: `Command not found: ${cmd}` };
+                    let response = { type: 'error', text: `> ERROR: UNKNOWN COMMAND '${cmd}'` };
 
                     if (cmd === 'help') {
-                        response = { type: 'info', text: 'Available commands: whoami, scan, secret, clear' };
+                        response = { type: 'info', text: '> COMMANDS: whoami | scan | secret | clear' };
                     } else if (cmd === 'whoami') {
-                        response = { type: 'success', text: 'Sumit M. Bide | Cyber Defense Specialist' };
+                        response = { type: 'success', text: '> SUMIT M. BIDE // CYBER DEFENSE SPECIALIST' };
                     } else if (cmd === 'scan') {
-                        response = { type: 'warning', text: 'Scanning network... No vulnerabilities found in this portfolio. Try scanning the projects!' };
+                        response = { type: 'warning', text: '> SCANNING... NO VULNERABILITIES DETECTED' };
                     } else if (cmd === 'secret') {
-                        response = { type: 'success', text: 'FLAG{BUG_B0UNTY_HUNT3R_2025}' };
+                        response = { type: 'success', text: '> FLAG{NEO_BRUTAL_H4CK3R_2025}' };
                     } else if (cmd === 'clear') {
                         setTerminalOutput([]);
                         setTerminalInput('');
                         return;
                     }
 
-                    setTerminalOutput([...terminalOutput, { type: 'input', text: `visitor@serp3n7:~$ ${cmd}` }, response]);
+                    setTerminalOutput([...terminalOutput, 
+                        { type: 'input', text: `> ${cmd}` }, 
+                        response
+                    ]);
                     setTerminalInput('');
                 }
             };
 
-            // Scroll to bottom of terminal
             useEffect(() => {
                 terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
             }, [terminalOutput]);
@@ -230,289 +264,331 @@
                 setTimeout(() => setCopied(false), 2000);
             };
 
-            const textEnter = () => setCursorVariant("text");
-            const textLeave = () => setCursorVariant("default");
-
-            const SkillBadge = ({ icon: Icon, label }) => (
-                <div 
-                    className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-full text-xs font-code text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-white/10 hover:border-blue-200 dark:hover:border-white/20 transition-all cursor-none"
-                    onMouseEnter={textEnter}
-                    onMouseLeave={textLeave}
-                >
-                    <Icon size={12} className="text-blue-500 dark:text-blue-400" />
-                    <span>{label}</span>
+            const SkillBadge = ({ label, color }) => (
+                <div className={`badge-brutal px-4 py-2 bg-${color} font-mono text-xs font-bold uppercase`}>
+                    {label}
                 </div>
             );
 
             return (
-                <div className="min-h-screen p-4 md:p-8 max-w-7xl mx-auto font-body relative transition-colors duration-300">
+                <div className="min-h-screen p-4 md:p-8 font-heading">
                     
-                    {/* --- THEME TOGGLE BUTTON --- */}
+                    {/* Dark Mode Toggle Button */}
                     <button 
-                        onClick={toggleTheme}
-                        onMouseEnter={textEnter}
-                        onMouseLeave={textLeave}
-                        className="fixed top-6 right-6 z-50 p-3 rounded-full glass-card hover:scale-110 transition-transform active:scale-95 text-gray-800 dark:text-white cursor-none"
+                        onClick={toggleDarkMode}
+                        className="fixed top-4 right-4 z-50 neo-brutal-btn bg-brutal-yellow p-3"
+                        aria-label="Toggle dark mode"
                     >
-                        {theme === 'dark' ? <Sun size={20} className="text-yellow-400" /> : <Moon size={20} className="text-slate-700" />}
+                        {darkMode ? (
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                <circle cx="12" cy="12" r="5"/>
+                                <line x1="12" y1="1" x2="12" y2="3"/>
+                                <line x1="12" y1="21" x2="12" y2="23"/>
+                                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                                <line x1="1" y1="12" x2="3" y2="12"/>
+                                <line x1="21" y1="12" x2="23" y2="12"/>
+                                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                            </svg>
+                        ) : (
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                            </svg>
+                        )}
                     </button>
-
-                    {/* --- CUSTOM CURSOR (TARGETING DIAMOND) --- */}
-                    <div 
-                        ref={cursorDot} 
-                        className="fixed top-0 left-0 w-1 h-1 bg-red-500 dark:bg-accent rounded-full pointer-events-none z-[999] -translate-x-1/2 -translate-y-1/2"
-                    />
-                    <div 
-                        ref={cursorRing}
-                        className={`fixed top-0 left-0 w-8 h-8 border border-red-500/50 dark:border-accent/50 rotate-45 pointer-events-none z-[999] transition-all duration-100 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center ${cursorVariant === 'text' ? 'scale-150 border-dashed animate-spin-slow' : 'scale-100'}`}
-                    >
-                        <div className="absolute top-[-4px] left-[-4px] w-2 h-2 border-t border-l border-red-500 dark:border-accent"></div>
-                        <div className="absolute top-[-4px] right-[-4px] w-2 h-2 border-t border-r border-red-500 dark:border-accent"></div>
-                        <div className="absolute bottom-[-4px] left-[-4px] w-2 h-2 border-b border-l border-red-500 dark:border-accent"></div>
-                        <div className="absolute bottom-[-4px] right-[-4px] w-2 h-2 border-b border-r border-red-500 dark:border-accent"></div>
+                    
+                    {/* Floating Header Banner */}
+                    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 neo-brutal-card bg-brutal-yellow px-6 py-3 skew-brutal">
+                        <h1 className="text-2xl font-black tracking-tight">SERP3N7 // CYBER DEFENSE</h1>
                     </div>
 
-                    {/* --- LIQUID BACKGROUND --- */}
-                    <div className="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-                        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-400/20 dark:bg-blue-600/20 rounded-full blur-[100px] animate-blob mix-blend-multiply dark:mix-blend-screen"></div>
-                        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-purple-400/20 dark:bg-purple-600/10 rounded-full blur-[100px] animate-blob animation-delay-2000 mix-blend-multiply dark:mix-blend-screen"></div>
-                        <div className="absolute -bottom-32 left-1/3 w-96 h-96 bg-indigo-400/20 dark:bg-indigo-600/20 rounded-full blur-[100px] animate-blob animation-delay-4000 mix-blend-multiply dark:mix-blend-screen"></div>
-                        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0IiBoZWlnaHQ9IjQiPgo8cmVjdCB3aWR0aD0iNCIgaGVpZ2h0PSI0IiBmaWxsPSJ0cmFuc3BhcmVudCIvPgo8cmVjdCB3aWR0aD0iMSIgaGVpZ2h0PSIxIiBmaWxsPSJyZ2JhKDEwMCwxMDAsMTAwLDAuMSkiLz4KPC9zdmc+')] opacity-30 dark:opacity-20"></div>
-                    </div>
-
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                    <div className="max-w-7xl mx-auto mt-24 grid grid-cols-1 lg:grid-cols-12 gap-6">
                         
-                        {/* --- LEFT COLUMN: STICKY PROFILE --- */}
-                        <div className="lg:col-span-4 lg:sticky lg:top-8 h-fit space-y-6 animate-fade-in" style={{ animationDelay: '0ms' }}>
-                            <div className="glass-card rounded-3xl p-8 flex flex-col items-center text-center relative overflow-hidden group">
-                                <div className="absolute inset-0 bg-gradient-to-b from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                                <div className="relative w-32 h-32 mb-6 rounded-full p-1 bg-gradient-to-br from-blue-500/50 to-purple-500/50" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                    <div className="w-full h-full rounded-full bg-white dark:bg-dark flex items-center justify-center overflow-hidden border-4 border-white dark:border-dark shadow-xl">
-                                        <Shield size={48} className="text-gray-600 dark:text-gray-400" />
+                        {/* LEFT SIDEBAR */}
+                        <div className="lg:col-span-4 space-y-6">
+                            
+                            {/* Profile Card */}
+                            <div className="neo-brutal-card bg-white p-8 relative overflow-hidden">
+                                <div className="absolute top-0 right-0 w-32 h-32 bg-brutal-pink opacity-20 rounded-full -mr-16 -mt-16"></div>
+                                
+                                <div className="relative mb-6">
+                                    <div className="w-32 h-32 mx-auto border-4 border-black bg-white overflow-hidden shadow-[8px_8px_0_0_#000]">
+                                        <img 
+                                            src="me.png" 
+                                            alt="Sumit M. Bide" 
+                                            className="w-full h-full object-cover"
+                                            onError={(e) => {
+                                                e.target.style.display = 'none';
+                                                e.target.nextElementSibling.style.display = 'flex';
+                                            }}
+                                        />
+                                        <div className="w-full h-full bg-brutal-blue flex items-center justify-center" style={{display: 'none'}}>
+                                            <Shield size={48} className="text-black" strokeWidth={3} />
+                                        </div>
                                     </div>
                                 </div>
-                                <h1 className="text-4xl font-bold font-heading text-gray-900 dark:text-white mb-2 tracking-tight" onMouseEnter={textEnter} onMouseLeave={textLeave}>Sumit M. Bide</h1>
-                                <p className="text-blue-600 dark:text-blue-400 font-code text-lg tracking-widest mb-6 bg-blue-100 dark:bg-blue-500/10 px-3 py-1 rounded-full border border-blue-200 dark:border-blue-500/20">@SERP3N7</p>
-                                <div className="space-y-6 w-full">
-                                    <p className="text-gray-600 dark:text-gray-300 text-lg font-medium leading-relaxed">
-                                        Cybersecurity Analyst & Home Lab Architect.<br/>Transforming hardware into fortresses.
-                                    </p>
-                                    <div className="flex justify-center gap-3">
-                                        <a href="https://github.com/Serp3n7" target="_blank" onMouseEnter={textEnter} onMouseLeave={textLeave} className="p-3 bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-700 dark:text-gray-400 hover:scale-110 transition-all cursor-none"><Github size={20}/></a>
-                                        <a href="https://linkedin.com/in/sumit-bide-a52241293" target="_blank" onMouseEnter={textEnter} onMouseLeave={textLeave} className="p-3 bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-700 dark:text-gray-400 hover:scale-110 transition-all cursor-none"><Linkedin size={20}/></a>
-                                        <a href="mailto:sumitmpatil19@gmail.com" onMouseEnter={textEnter} onMouseLeave={textLeave} className="p-3 bg-white/50 dark:bg-white/5 border border-gray-200 dark:border-white/5 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-700 dark:text-gray-400 hover:scale-110 transition-all cursor-none"><Mail size={20}/></a>
-                                    </div>
-                                    <a href="Sumit-M.-Bide-Resume.pdf" download onMouseEnter={textEnter} onMouseLeave={textLeave} className="flex items-center justify-center gap-2 w-full py-3 bg-gray-900 dark:bg-white text-white dark:text-black font-bold rounded-xl hover:bg-gray-800 dark:hover:bg-gray-200 transition-all active:scale-95 shadow-lg cursor-none">
-                                        <Download size={18} /> Download Resume
+
+                                <h2 className="text-3xl font-black text-center mb-2 uppercase">Sumit M. Bide</h2>
+                                <div className="bg-black text-brutal-green px-3 py-1 font-mono text-sm font-bold text-center mb-4 border-4 border-black">
+                                    @SERP3N7
+                                </div>
+
+                                <p className="text-center text-lg mb-6 font-bold leading-tight">
+                                    CYBERSECURITY ANALYST<br/>
+                                    HOME LAB ARCHITECT
+                                </p>
+
+                                {/* Social Links */}
+                                <div className="flex justify-center gap-3 mb-6">
+                                    <a href="https://github.com/Serp3n7" target="_blank" className="neo-brutal-btn bg-white p-3">
+                                        <Github size={20} strokeWidth={3}/>
+                                    </a>
+                                    <a href="https://linkedin.com/in/sumit-bide-a52241293" target="_blank" className="neo-brutal-btn bg-brutal-blue p-3">
+                                        <Linkedin size={20} strokeWidth={3}/>
+                                    </a>
+                                    <a href="mailto:sumitmpatil19@gmail.com" className="neo-brutal-btn bg-brutal-red p-3 text-white">
+                                        <Mail size={20} strokeWidth={3}/>
                                     </a>
                                 </div>
-                                <div className="mt-8 pt-6 border-t border-gray-200 dark:border-white/5 w-full flex justify-between text-xs font-code text-gray-500 dark:text-gray-500">
-                                    <span className="flex items-center gap-1"><MapPin size={12}/> Dombivli, MH</span>
-                                    <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> ONLINE</span>
+
+                                {/* Resume Button */}
+                                <a href="Sumit-M.-Bide-Resume.pdf" download className="neo-brutal-btn bg-black text-brutal-yellow w-full py-3 px-6 flex items-center justify-center gap-2">
+                                    <Download size={18} strokeWidth={3}/> DOWNLOAD RESUME
+                                </a>
+
+                                {/* Status Bar */}
+                                <div className="mt-6 pt-4 border-t-4 border-black flex justify-between items-center font-mono text-xs">
+                                    <span className="flex items-center gap-1">
+                                        <MapPin size={12}/> DOMBIVLI, MH
+                                    </span>
+                                    <span className="flex items-center gap-2 bg-brutal-green px-2 py-1 border-2 border-black">
+                                        <span className="w-2 h-2 bg-black rounded-full animate-pulse"></span>
+                                        ONLINE
+                                    </span>
                                 </div>
                             </div>
 
                             {/* Credentials */}
-                            <div className="glass-card rounded-3xl p-6">
-                                <h3 className="text-xs font-code text-gray-500 dark:text-gray-500 mb-4 uppercase tracking-widest">Credentials</h3>
+                            <div className="neo-brutal-card bg-brutal-purple p-6">
+                                <h3 className="font-black text-xl mb-4 uppercase flex items-center gap-2">
+                                    <Zap size={20} strokeWidth={3}/> CREDENTIALS
+                                </h3>
                                 <div className="space-y-4">
-                                    <div className="flex gap-4 items-start group" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                        <div className="p-2.5 bg-emerald-100 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 rounded-xl border border-emerald-200 dark:border-emerald-500/20 transition-colors"><Award size={18}/></div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-800 dark:text-white text-sm">Cisco Cybersecurity</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Risk Mgmt & Network Defense</p>
+                                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0_0_#000]">
+                                        <div className="flex items-start gap-3">
+                                            <Award size={24} strokeWidth={3} className="flex-shrink-0"/>
+                                            <div>
+                                                <h4 className="font-black text-sm">CISCO CYBERSECURITY</h4>
+                                                <p className="text-xs font-mono mt-1">Risk Management & Network Defense</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="flex gap-4 items-start group" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                        <div className="p-2.5 bg-blue-100 dark:bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-200 dark:border-blue-500/20 transition-colors"><Book size={18}/></div>
-                                        <div>
-                                            <h4 className="font-bold text-gray-800 dark:text-white text-sm">Diploma in Comp. Eng</h4>
-                                            <p className="text-xs text-gray-500 mt-0.5">Vasantrao More Polytechnic</p>
+                                    <div className="bg-white border-4 border-black p-4 shadow-[4px_4px_0_0_#000]">
+                                        <div className="flex items-start gap-3">
+                                            <Book size={24} strokeWidth={3} className="flex-shrink-0"/>
+                                            <div>
+                                                <h4 className="font-black text-sm">DIPLOMA IN COMP. ENG</h4>
+                                                <p className="text-xs font-mono mt-1">Vasantrao More Polytechnic</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
-                        {/* --- RIGHT COLUMN --- */}
+                        {/* RIGHT COLUMN */}
                         <div className="lg:col-span-8 space-y-6">
                             
-                            {/* Intro */}
-                            <div className="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden animate-fade-in" style={{ animationDelay: '100ms' }}>
-                                <div className="absolute top-0 right-0 p-32 bg-blue-500/10 dark:bg-blue-500/5 blur-[80px] rounded-full pointer-events-none"></div>
-                                <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 text-gradient" onMouseEnter={textEnter} onMouseLeave={textLeave}>Securing the Digital Frontier.</h2>
-                                <p className="text-gray-600 dark:text-gray-300 text-xl leading-relaxed max-w-2xl mb-8 font-light" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                    I am a self-driven security researcher passionate about <span className="text-gray-900 dark:text-white font-medium">Offensive Security</span> and <span className="text-gray-900 dark:text-white font-medium">Infrastructure Hardening</span>. From building custom kernels for Android to managing enterprise-grade home labs, I build systems to understand how to break them—and how to fix them.
+                            {/* Hero Card */}
+                            <div className="neo-brutal-card bg-brutal-yellow p-8 md:p-12 relative overflow-hidden">
+                                <div className="absolute -right-12 -bottom-12 text-[200px] font-black opacity-10 select-none">
+                                    &lt;/&gt;
+                                </div>
+                                <h2 className="text-4xl md:text-6xl font-black mb-6 uppercase leading-none">
+                                    SECURING THE<br/>DIGITAL FRONTIER
+                                </h2>
+                                <p className="text-xl mb-8 font-bold leading-tight max-w-2xl">
+                                    Self-driven security researcher passionate about OFFENSIVE SECURITY and INFRASTRUCTURE HARDENING. Building systems to break them—and fix them.
                                 </p>
                                 <div className="flex flex-wrap gap-4">
-                                    <button onClick={copyEmail} onMouseEnter={textEnter} onMouseLeave={textLeave} className="flex items-center gap-2 px-6 py-3 bg-white/50 dark:bg-white/5 border border-white/20 dark:border-white/10 text-gray-800 dark:text-white rounded-full font-bold hover:bg-white/80 dark:hover:bg-white/10 transition-colors backdrop-blur-md cursor-none">
-                                        {copied ? <Check size={18} className="text-emerald-500"/> : <Copy size={18}/>}
-                                        {copied ? "Email Copied" : "Copy Email"}
+                                    <button onClick={copyEmail} className="neo-brutal-btn bg-white px-6 py-3 flex items-center gap-2">
+                                        {copied ? <Check size={18} strokeWidth={3}/> : <Copy size={18} strokeWidth={3}/>}
+                                        {copied ? "COPIED!" : "COPY EMAIL"}
                                     </button>
-                                    <a href="#projects" onMouseEnter={textEnter} onMouseLeave={textLeave} className="flex items-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-full font-bold transition-all shadow-lg shadow-blue-900/20 cursor-none">
-                                        View Projects <ArrowUpRight size={18}/>
+                                    <a href="#projects" className="neo-brutal-btn bg-black text-brutal-green px-6 py-3 flex items-center gap-2">
+                                        VIEW WORK <ArrowUpRight size={18} strokeWidth={3}/>
                                     </a>
                                 </div>
                             </div>
 
-                            {/* --- INTERACTIVE TERMINAL --- */}
-                            <div className="glass-card rounded-3xl overflow-hidden border border-gray-200 dark:border-white/10 bg-gray-900 text-green-400 font-code p-6 shadow-2xl animate-fade-in" style={{ animationDelay: '150ms' }}>
-                                <div className="flex items-center gap-2 mb-4 border-b border-gray-700 pb-2">
-                                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                                    <span className="ml-2 text-xs text-gray-500">visitor@serp3n7: ~</span>
+                            {/* Terminal */}
+                            <div className="terminal-brutal bg-black p-6">
+                                <div className="flex items-center gap-2 mb-4 pb-3 border-b-2 border-brutal-green">
+                                    <div className="w-4 h-4 bg-brutal-red border-2 border-black"></div>
+                                    <div className="w-4 h-4 bg-brutal-yellow border-2 border-black"></div>
+                                    <div className="w-4 h-4 bg-brutal-green border-2 border-black"></div>
+                                    <span className="ml-3 text-brutal-green font-mono text-xs font-bold">SERP3N7_TERMINAL</span>
                                 </div>
-                                <div className="h-40 overflow-y-auto space-y-2 mb-2 text-sm custom-scrollbar" onMouseEnter={textEnter} onMouseLeave={textLeave}>
+                                <div className="h-40 overflow-y-auto space-y-1 mb-3 text-sm">
                                     {terminalOutput.map((line, i) => (
-                                        <div key={i} className={`${line.type === 'error' ? 'text-red-400' : line.type === 'success' ? 'text-green-400' : line.type === 'warning' ? 'text-yellow-400' : 'text-gray-300'}`}>
+                                        <div key={i} className={`font-mono font-bold ${
+                                            line.type === 'error' ? 'text-brutal-red' : 
+                                            line.type === 'success' ? 'text-brutal-green' : 
+                                            line.type === 'warning' ? 'text-brutal-yellow' : 
+                                            'text-brutal-blue'
+                                        }`}>
                                             {line.text}
                                         </div>
                                     ))}
                                     <div ref={terminalEndRef}></div>
                                 </div>
-                                <div className="flex items-center gap-2 text-sm">
-                                    <span className="text-blue-400">➜</span>
-                                    <span className="text-purple-400">~</span>
+                                <div className="flex items-center gap-2 text-sm border-t-2 border-brutal-green pt-3">
+                                    <span className="text-brutal-green font-mono font-bold">&gt;</span>
                                     <input 
                                         type="text" 
                                         value={terminalInput} 
                                         onChange={(e) => setTerminalInput(e.target.value)} 
                                         onKeyDown={handleTerminalCommand}
-                                        className="bg-transparent border-none outline-none text-white w-full font-code cursor-none"
-                                        placeholder="Type 'help'..."
+                                        className="bg-transparent border-none outline-none text-brutal-green w-full font-mono font-bold placeholder-brutal-green/40"
+                                        placeholder="TYPE COMMAND..."
                                         autoFocus
                                     />
                                 </div>
                             </div>
 
-                            {/* --- BUG BOUNTY HALL OF FAME --- */}
-                            <div className="glass-card rounded-3xl p-8 animate-fade-in" style={{ animationDelay: '180ms' }}>
+                            {/* Bug Bounty Section */}
+                            <div className="neo-brutal-card bg-white p-8">
                                 <div className="flex items-center gap-3 mb-6">
-                                    <div className="p-2 bg-yellow-500/10 text-yellow-500 rounded-lg border border-yellow-500/20"><Bug size={24}/></div>
+                                    <div className="w-12 h-12 bg-brutal-red border-4 border-black flex items-center justify-center">
+                                        <Bug size={24} strokeWidth={3}/>
+                                    </div>
                                     <div>
-                                        <h3 className="font-bold font-heading text-xl text-gray-900 dark:text-white">Bug Bounty Hall of Fame</h3>
-                                        <p className="text-sm text-gray-500">Vulnerability Disclosures & Acknowledgements</p>
+                                        <h3 className="font-black text-2xl uppercase">BUG BOUNTY HALL OF FAME</h3>
+                                        <p className="font-mono text-sm">VULNERABILITY DISCLOSURES</p>
                                     </div>
                                 </div>
                                 <div className="grid gap-4">
                                     {[
-                                        { title: "Hardware Hacking & IoT", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_cybersecurity-homelab-hardwarehacking-activity-7405898404616310784-Al4e", type: "Research" },
-                                        { title: "Red Teaming & AppSec", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_redteam-hacking-appsec-activity-7405465326357762048-FzIo", type: "Exploit" },
-                                        { title: "Logic Bug Disclosure", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-cybersecurity-logicbug-activity-7403932985844023296-knTS", type: "Bounty" },
-                                        { title: "Ethical Hacking Report", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-ethicalhacking-cybersecurity-activity-7403903878141943808-UYYA", type: "Ack" }
+                                        { title: "Hardware Hacking & IoT", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_cybersecurity-homelab-hardwarehacking-activity-7405898404616310784-Al4e", color: "bg-brutal-yellow" },
+                                        { title: "Red Teaming & AppSec", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_redteam-hacking-appsec-activity-7405465326357762048-FzIo", color: "bg-brutal-pink" },
+                                        { title: "Logic Bug Disclosure", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-cybersecurity-logicbug-activity-7403932985844023296-knTS", color: "bg-brutal-blue" },
+                                        { title: "Ethical Hacking Report", link: "https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-ethicalhacking-cybersecurity-activity-7403903878141943808-UYYA", color: "bg-brutal-green" }
                                     ].map((bug, i) => (
-                                        <a href={bug.link} target="_blank" key={i} className="flex items-center justify-between p-4 bg-white/5 border border-white/5 rounded-xl hover:bg-white/10 hover:border-yellow-500/30 transition-all group cursor-none" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                            <span className="font-code text-sm text-gray-300 group-hover:text-white">{bug.title}</span>
-                                            <span className="px-2 py-1 text-[10px] uppercase border border-white/10 rounded text-gray-500">{bug.type}</span>
+                                        <a href={bug.link} target="_blank" key={i} className={`neo-brutal-card ${bug.color} p-4 flex items-center justify-between group`}>
+                                            <span className="font-mono font-bold text-sm">{bug.title}</span>
+                                            <ArrowUpRight size={20} strokeWidth={3} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"/>
                                         </a>
                                     ))}
                                 </div>
                             </div>
 
-                            {/* Skills Matrix */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in" style={{ animationDelay: '200ms' }}>
-                                <div className="glass-card rounded-3xl p-6">
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <div className="p-2 bg-red-100 dark:bg-red-500/10 text-red-500 dark:text-red-400 rounded-lg border border-red-200 dark:border-red-500/20"><Shield size={20}/></div>
-                                        <h3 className="font-bold font-heading text-lg text-gray-900 dark:text-white">Red Team Operations</h3>
-                                    </div>
+                            {/* Skills Grid */}
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="neo-brutal-card bg-brutal-red p-6">
+                                    <h3 className="font-black text-xl mb-4 uppercase flex items-center gap-2">
+                                        <Crosshair size={20} strokeWidth={3}/> RED TEAM OPS
+                                    </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {['Burp Suite', 'Metasploit', 'Nmap', 'Wireshark', 'OWASP Top 10', 'Social Eng.'].map(s => <SkillBadge key={s} icon={Terminal} label={s} />)}
+                                        {['BURP SUITE', 'METASPLOIT', 'NMAP', 'WIRESHARK', 'OWASP', 'SOCIAL ENG'].map(s => 
+                                            <SkillBadge key={s} label={s} color="white" />
+                                        )}
                                     </div>
                                 </div>
-                                <div className="glass-card rounded-3xl p-6">
-                                    <div className="flex items-center gap-3 mb-6">
-                                        <div className="p-2 bg-blue-100 dark:bg-blue-500/10 text-blue-500 dark:text-blue-400 rounded-lg border border-blue-200 dark:border-blue-500/20"><Server size={20}/></div>
-                                        <h3 className="font-bold font-heading text-lg text-gray-900 dark:text-white">Blue Team & Infra</h3>
-                                    </div>
+                                <div className="neo-brutal-card bg-brutal-blue p-6">
+                                    <h3 className="font-black text-xl mb-4 uppercase flex items-center gap-2">
+                                        <Shield size={20} strokeWidth={3}/> BLUE TEAM & INFRA
+                                    </h3>
                                     <div className="flex flex-wrap gap-2">
-                                        {['Linux Hardening', 'Splunk SIEM', 'Docker', 'Unraid', 'Bash Scripting', 'Network Sec'].map(s => <SkillBadge key={s} icon={Cpu} label={s} />)}
+                                        {['LINUX HARDENING', 'SPLUNK SIEM', 'DOCKER', 'UNRAID', 'BASH', 'NETWORK SEC'].map(s => 
+                                            <SkillBadge key={s} label={s} color="white" />
+                                        )}
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Project Cards (Clickable) */}
-                            <a href="https://github.com/Serp3n7" target="_blank" className="block cursor-none" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                <div id="projects" className="glass-card rounded-3xl p-1 overflow-hidden group animate-fade-in" style={{ animationDelay: '300ms' }}>
-                                    <div className="bg-gradient-to-br from-gray-50/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 p-8 md:p-10 h-full relative backdrop-blur-sm group-hover:bg-white/80 dark:group-hover:bg-gray-900/40 transition-colors">
-                                        <div className="absolute top-4 right-4 px-3 py-1 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full text-xs font-code text-gray-600 dark:text-gray-400">HARDWARE</div>
-                                        <div className="mb-6 w-12 h-12 bg-blue-100 dark:bg-blue-500/10 border border-blue-200 dark:border-blue-500/20 rounded-xl flex items-center justify-center text-blue-500 dark:text-blue-400 group-hover:scale-110 transition-transform duration-300">
-                                            <Activity size={24} />
-                                        </div>
-                                        <h3 className="text-2xl font-bold font-heading mb-4 text-gray-900 dark:text-white group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">Enterprise Home Lab</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                            A multi-purpose server environment built on <span className="text-gray-900 dark:text-white font-medium">Unraid</span> using repurposed gaming hardware. 
-                                            Hosts a Plex Media Server, secure SMB file sharing, and a strictly segregated virtual network for 
-                                            <span className="text-gray-900 dark:text-white font-medium"> penetration testing & SIEM simulations</span>.
-                                        </p>
-                                    </div>
-                                </div>
-                            </a>
+                            {/* Projects */}
+                            <div id="projects" className="space-y-6">
+                                <h2 className="text-4xl font-black uppercase mb-6 flex items-center gap-3">
+                                    <div className="w-8 h-8 bg-brutal-yellow border-4 border-black"></div>
+                                    FEATURED PROJECTS
+                                </h2>
 
-                            <a href="https://github.com/Serp3n7" target="_blank" className="block cursor-none" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                <div className="glass-card rounded-3xl p-1 overflow-hidden group animate-fade-in" style={{ animationDelay: '400ms' }}>
-                                    <div className="bg-gradient-to-br from-gray-50/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 p-8 md:p-10 h-full relative backdrop-blur-sm group-hover:bg-white/80 dark:group-hover:bg-gray-900/40 transition-colors">
-                                        <div className="absolute top-4 right-4 px-3 py-1 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full text-xs font-code text-gray-600 dark:text-gray-400">OPEN SOURCE</div>
-                                        <div className="mb-6 w-12 h-12 bg-purple-100 dark:bg-purple-500/10 border border-purple-200 dark:border-purple-500/20 rounded-xl flex items-center justify-center text-purple-500 dark:text-purple-400 group-hover:scale-110 transition-transform duration-300">
-                                            <Terminal size={24} />
+                                <a href="https://github.com/Serp3n7" target="_blank" className="block">
+                                    <div className="neo-brutal-card bg-white p-8 relative overflow-hidden animate-wiggle">
+                                        <div className="absolute top-4 right-4 bg-brutal-yellow border-3 border-black px-3 py-1 font-mono text-xs font-bold shadow-[3px_3px_0_0_#000]">
+                                            HARDWARE
                                         </div>
-                                        <h3 className="text-2xl font-bold font-heading mb-4 text-gray-900 dark:text-white group-hover:text-purple-500 dark:group-hover:text-purple-400 transition-colors">Kali NetHunter Kernel Dev</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                            Contributed to the Kali NetHunter project by developing custom kernels and installers for the <span className="text-gray-900 dark:text-white font-medium">Redmi Note 4 (mido)</span>. 
-                                            Enabled advanced offensive security features directly on mobile hardware.
+                                        <div className="w-16 h-16 bg-brutal-green border-4 border-black flex items-center justify-center mb-4 rotate-3 shadow-[6px_6px_0_0_#000]">
+                                            <Activity size={32} strokeWidth={3}/>
+                                        </div>
+                                        <h3 className="text-3xl font-black mb-4 uppercase">ENTERPRISE HOME LAB</h3>
+                                        <p className="text-lg font-bold mb-4 leading-tight">
+                                            Multi-purpose server environment on UNRAID using repurposed gaming hardware. Hosts Plex, SMB sharing, and segregated virtual networks for PENTESTING & SIEM SIMULATIONS.
                                         </p>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
 
-                            <a href="https://github.com/Serp3n7/banking-system" target="_blank" className="block cursor-none" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                <div className="glass-card rounded-3xl p-1 overflow-hidden group animate-fade-in" style={{ animationDelay: '500ms' }}>
-                                    <div className="bg-gradient-to-br from-gray-50/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 p-8 md:p-10 h-full relative backdrop-blur-sm group-hover:bg-white/80 dark:group-hover:bg-gray-900/40 transition-colors">
-                                        <div className="absolute top-4 right-4 px-3 py-1 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full text-xs font-code text-gray-600 dark:text-gray-400">FULL STACK</div>
-                                        <div className="mb-6 w-12 h-12 bg-emerald-100 dark:bg-emerald-500/10 border border-emerald-200 dark:border-emerald-500/20 rounded-xl flex items-center justify-center text-emerald-500 dark:text-emerald-400 group-hover:scale-110 transition-transform duration-300">
-                                            <Lock size={24} />
+                                <a href="https://github.com/Serp3n7" target="_blank" className="block">
+                                    <div className="neo-brutal-card bg-brutal-pink p-8 animate-wiggle">
+                                        <div className="absolute top-4 right-4 bg-black text-white border-3 border-black px-3 py-1 font-mono text-xs font-bold shadow-[3px_3px_0_0_#000]">
+                                            OPEN SOURCE
                                         </div>
-                                        <h3 className="text-2xl font-bold font-heading mb-4 text-gray-900 dark:text-white group-hover:text-emerald-500 dark:group-hover:text-emerald-400 transition-colors">Secure Banking System</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                            Developed a full-stack banking application with a "Security First" approach. 
-                                            Implemented robust controls against common web vulnerabilities.
+                                        <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center mb-4 -rotate-3 shadow-[6px_6px_0_0_#000]">
+                                            <Terminal size={32} strokeWidth={3}/>
+                                        </div>
+                                        <h3 className="text-3xl font-black mb-4 uppercase">KALI NETHUNTER KERNEL DEV</h3>
+                                        <p className="text-lg font-bold mb-4 leading-tight">
+                                            Contributed custom kernels and installers for REDMI NOTE 4 (MIDO). Enabled advanced offensive security features on mobile hardware.
                                         </p>
-                                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-code text-gray-500">
-                                            <span>SHA-256</span>
-                                            <span>JWT Auth</span>
-                                            <span>CORS</span>
-                                            <span>SQLi Protection</span>
-                                        </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
 
-                            {/* Project: Library Management System */}
-                            <a href="https://github.com/Serp3n7/library-management-system" target="_blank" className="block cursor-none" onMouseEnter={textEnter} onMouseLeave={textLeave}>
-                                <div className="glass-card rounded-3xl p-1 overflow-hidden group animate-fade-in" style={{ animationDelay: '600ms' }}>
-                                    <div className="bg-gradient-to-br from-gray-50/50 to-white/50 dark:from-gray-900/50 dark:to-black/50 p-8 md:p-10 h-full relative backdrop-blur-sm group-hover:bg-white/80 dark:group-hover:bg-gray-900/40 transition-colors">
-                                        <div className="absolute top-4 right-4 px-3 py-1 bg-gray-200 dark:bg-white/5 border border-gray-300 dark:border-white/10 rounded-full text-xs font-code text-gray-600 dark:text-gray-400">WEB APP</div>
-                                        <div className="mb-6 w-12 h-12 bg-orange-100 dark:bg-orange-500/10 border border-orange-200 dark:border-orange-500/20 rounded-xl flex items-center justify-center text-orange-500 dark:text-orange-400 group-hover:scale-110 transition-transform duration-300">
-                                            <Book size={24} />
+                                <a href="https://github.com/Serp3n7/banking-system" target="_blank" className="block">
+                                    <div className="neo-brutal-card bg-brutal-blue p-8 animate-wiggle">
+                                        <div className="absolute top-4 right-4 bg-white border-3 border-black px-3 py-1 font-mono text-xs font-bold shadow-[3px_3px_0_0_#000]">
+                                            FULL STACK
                                         </div>
-                                        <h3 className="text-2xl font-bold font-heading mb-4 text-gray-900 dark:text-white group-hover:text-orange-500 dark:group-hover:text-orange-400 transition-colors">Online Library System</h3>
-                                        <p className="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
-                                            Built a secure management system using PHP and MySQL. Implemented strict input validation and access controls to mitigate SQL injection and broken access control vulnerabilities.
+                                        <div className="w-16 h-16 bg-brutal-yellow border-4 border-black flex items-center justify-center mb-4 rotate-2 shadow-[6px_6px_0_0_#000]">
+                                            <Lock size={32} strokeWidth={3}/>
+                                        </div>
+                                        <h3 className="text-3xl font-black mb-4 uppercase">SECURE BANKING SYSTEM</h3>
+                                        <p className="text-lg font-bold mb-4 leading-tight">
+                                            Full-stack banking app with "SECURITY FIRST" approach. Robust controls against web vulnerabilities.
                                         </p>
-                                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm font-code text-gray-500">
-                                            <span>PHP</span>
-                                            <span>MySQL</span>
-                                            <span>RBAC</span>
-                                            <span>Input Validation</span>
+                                        <div className="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                                            {['SHA-256', 'JWT AUTH', 'CORS', 'SQLI PROTECTION'].map(t => 
+                                                <span key={t} className="bg-white border-2 border-black px-2 py-1">{t}</span>
+                                            )}
                                         </div>
                                     </div>
-                                </div>
-                            </a>
+                                </a>
+
+                                <a href="https://github.com/Serp3n7/library-management-system" target="_blank" className="block">
+                                    <div className="neo-brutal-card bg-brutal-purple p-8 animate-wiggle">
+                                        <div className="absolute top-4 right-4 bg-brutal-yellow border-3 border-black px-3 py-1 font-mono text-xs font-bold shadow-[3px_3px_0_0_#000]">
+                                            WEB APP
+                                        </div>
+                                        <div className="w-16 h-16 bg-white border-4 border-black flex items-center justify-center mb-4 -rotate-2 shadow-[6px_6px_0_0_#000]">
+                                            <Book size={32} strokeWidth={3}/>
+                                        </div>
+                                        <h3 className="text-3xl font-black mb-4 uppercase text-white">ONLINE LIBRARY SYSTEM</h3>
+                                        <p className="text-lg font-bold mb-4 leading-tight text-white">
+                                            Secure management system with PHP & MySQL. Strict input validation and access controls.
+                                        </p>
+                                        <div className="flex flex-wrap gap-2 font-mono text-xs font-bold">
+                                            {['PHP', 'MYSQL', 'RBAC', 'INPUT VALIDATION'].map(t => 
+                                                <span key={t} className="bg-white border-2 border-black px-2 py-1">{t}</span>
+                                            )}
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
 
                             {/* Footer */}
-                            <div className="py-8 text-center border-t border-gray-200 dark:border-white/5 mt-12 animate-fade-in" style={{ animationDelay: '800ms' }}>
-                                <p className="text-gray-500 dark:text-gray-600a font-code text-xs tracking-widest">
+                            <div className="neo-brutal-card bg-black text-brutal-green p-6 text-center">
+                                <p className="font-mono font-bold text-sm tracking-wider">
                                     SECURE UPLINK ESTABLISHED // © 2025 SERP3N7
                                 </p>
                             </div>
@@ -524,7 +600,7 @@
         };
 
         const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<PortfolioBento />);
+        root.render(<NeoBrutalistPortfolio />);
     </script>
 </body>
 </html>
