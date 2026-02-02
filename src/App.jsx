@@ -131,7 +131,7 @@ const App = () => {
                             <div className="w-32 h-32 mx-auto border-4 border-black bg-white overflow-hidden shadow-[8px_8px_0_0_#000]">
                                 <img 
                                     src="/me.png" 
-                                    alt="Sumit M. Bide" 
+                                    alt="Sumit M. Patil" 
                                     className="w-full h-full object-cover"
                                     onError={(e) => {
                                         e.target.style.display = 'none';
@@ -400,7 +400,7 @@ const App = () => {
                     {/* Footer */}
                     <div className="neo-brutal-card bg-black text-brutal-green p-6 text-center">
                         <p className="font-mono font-bold text-sm tracking-wider">
-                            SECURE UPLINK ESTABLISHED // © 2025 SERP3N7
+                            SECURE UPLINK ESTABLISHED // © 2026 SERP3N7
                         </p>
                     </div>
 
