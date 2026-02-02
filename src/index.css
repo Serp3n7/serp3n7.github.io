@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FFFEF2] transition-colors duration-300;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px);
+  }
+
+  body.dark-mode {
+    @apply bg-[#1a1a1a] text-white;
+    background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+  }
+}
+
+@layer components {
+  .neo-brutal-card {
+    @apply border-4 border-black shadow-[8px_8px_0_0_#000] transition-all duration-150;
+  }
+  
+  .neo-brutal-card:hover {
+    @apply translate-x-[-2px] translate-y-[-2px] shadow-[12px_12px_0_0_#000];
+  }
+
+  .dark-mode .neo-brutal-card {
+    @apply border-brutal-yellow shadow-[8px_8px_0_0_#FFED4E];
+  }
+  
+  .dark-mode .neo-brutal-card:hover {
+    @apply shadow-[12px_12px_0_0_#FFED4E];
+  }
+  
+  .dark-mode .neo-brutal-card.bg-white {
+    @apply bg-[#2a2a2a] text-white;
+  }
+  
+  .dark-mode .neo-brutal-card.bg-white .text-black {
+    @apply text-white;
+  }
+
+  .neo-brutal-btn {
+    @apply border-4 border-black shadow-[6px_6px_0_0_#000] transition-all duration-100 font-black uppercase tracking-wider;
+  }
+  
+  .neo-brutal-btn:hover {
+    @apply translate-x-[-2px] translate-y-[-2px] shadow-[8px_8px_0_0_#000];
+  }
+  
+  .neo-brutal-btn:active {
+    @apply translate-x-[3px] translate-y-[3px] shadow-[3px_3px_0_0_#000];
+  }
+
+  .terminal-brutal {
+    @apply border-4 border-black shadow-[6px_6px_0_0_#39FF14] font-mono;
+  }
+  
+  .badge-brutal {
+    @apply border-[3px] border-black shadow-[3px_3px_0_0_#000] transition-all duration-100;
+  }
+
+  .skew-brutal {
+    transform: skew(-2deg);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-1deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.3s ease-in-out infinite;
+}
