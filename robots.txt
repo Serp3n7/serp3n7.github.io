@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://serp3n7.github.io/sitemap.xml
