@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 const App = () => (
   <HelmetProvider>
     <Helmet>
-      <title>Sumit M. Patil – Cybersecurity Analyst | SERP3N7</title>
+      <title>Sumit Bide – Cybersecurity Analyst | SERP3N7</title>
       <meta name="description" content="Cybersecurity analyst specializing in offensive security, red teaming, and infrastructure hardening. Home lab architect, bug bounty hunter, and Kali NetHunter kernel contributor." />
     </Helmet>
 

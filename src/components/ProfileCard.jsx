@@ -18,13 +18,13 @@ const ProfileCard = () => (
       <div className="w-28 h-28 mx-auto rounded-2xl glass overflow-hidden mb-4 ring-2 ring-cyan-400/20">
         <img
           src="/me.png"
-          alt="Sumit M. Patil"
+          alt="Sumit Bide"
           className="w-full h-full object-cover"
           loading="lazy"
         />
       </div>
 
-      <h2 className="text-2xl font-black">Sumit M. Patil</h2>
+      <h2 className="text-2xl font-black">Sumit Bide</h2>
       <p className="text-sm font-mono text-cyan-400 font-bold mt-1">@SERP3N7</p>
 
       <div className="flex justify-center gap-3 mt-4">

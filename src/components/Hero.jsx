@@ -62,7 +62,7 @@ const Hero = () => {
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl glass overflow-hidden">
                 <img
                   src="/me.png"
-                  alt="Sumit M. Patil - Cybersecurity Analyst"
+                  alt="Sumit Bide - Cybersecurity Analyst"
                   className="w-full h-full object-cover opacity-90"
                   loading="eager"
                 />
