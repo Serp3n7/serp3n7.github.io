@@ -24,7 +24,7 @@ const Terminal = () => {
         response = { type: 'info', text: 'COMMANDS: whoami | scan | secret | clear' };
         break;
       case 'whoami':
-        response = { type: 'success', text: 'SUMIT M. PATIL // CYBER DEFENSE SPECIALIST' };
+        response = { type: 'success', text: 'SUMIT BIDE // CYBERSECURITY ANALYST & PENETRATION TESTER' };
         break;
       case 'scan':
         response = { type: 'warning', text: 'SCANNING... NO VULNERABILITIES DETECTED' };
