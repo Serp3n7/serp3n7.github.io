@@ -28,7 +28,7 @@ const AboutSection = () => (
             <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl" />
             <div className="relative w-full aspect-square rounded-2xl glass overflow-hidden ring-1 ring-white/10">
               <img
-                src="/me.png"
+                src="/portrait.png"
                 alt="Sumit Bide"
                 className="w-full h-full object-cover"
                 loading="lazy"

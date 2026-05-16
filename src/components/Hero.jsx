@@ -61,7 +61,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-cyan-400/20 to-blue-600/20 rounded-3xl blur-3xl" />
               <div className="relative w-64 h-64 md:w-80 md:h-80 rounded-3xl glass overflow-hidden">
                 <img
-                  src="/me.png"
+                  src="/portrait.png"
                   alt="Sumit Bide - Cybersecurity Analyst & Penetration Tester"
                   className="w-full h-full object-cover opacity-90"
                   loading="eager"
