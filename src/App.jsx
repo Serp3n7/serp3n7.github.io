@@ -29,7 +29,7 @@ const App = () => (
       <section id="work" className="py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="flex items-center gap-3 mb-12">
-            <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full" />
+            <div className="w-2 h-8 bg-[#00FFF0] border border-black" style={{ borderRadius: 0 }} />
             <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
               Capabilities
             </h2>

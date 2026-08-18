@@ -42,7 +42,7 @@ const projects = [
 const Projects = () => (
   <section id="work" className="space-y-6">
     <div className="flex items-center gap-3 mb-2">
-      <div className="w-1 h-6 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full" />
+      <div className="w-2 h-6 bg-[#00FFF0] border border-black" style={{ borderRadius: 0 }} />
       <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
         Featured Projects
       </h2>
@@ -58,13 +58,13 @@ const Projects = () => (
           className="glass-card p-6 md:p-8 block group"
         >
           <div className="flex items-start justify-between mb-6">
-            <div className={`w-14 h-14 rounded-xl glass flex items-center justify-center ${project.color}`}>
+            <div className={`w-14 h-14 flex items-center justify-center border-2 border-black ${project.color}`} style={{ borderRadius: 0, boxShadow: '2px 2px 0 0 #000' }}>
               <project.icon size={24} strokeWidth={1.5} />
             </div>
-            <span className="tag text-xs">{project.badge}</span>
+            <span className="brutal-tag text-xs">{project.badge}</span>
           </div>
 
-          <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-cyan-400 transition-colors">
+          <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-[#00FFF0] transition-colors">
             {project.title}
           </h3>
 

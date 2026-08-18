@@ -15,21 +15,21 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 md:px-8 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
           <div className="lg:col-span-7 space-y-8">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm font-mono text-cyan-400 border border-cyan-400/20">
-              <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse-glow" />
+            <div className="inline-flex items-center gap-2 px-4 py-2 text-sm font-mono text-[#00FFF0] border-2 border-[#00FFF0]/30" style={{ boxShadow: '2px 2px 0 0 rgba(0, 255, 240, 0.15)' }}>
+              <span className="w-2.5 h-2.5 bg-[#39FF14] animate-pulse-glow border border-black" />
               SECURE UPLINK ACTIVE
             </div>
 
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight">
               <span className="block">SECURING THE</span>
-              <span className="text-gradient">DIGITAL</span>
+              <span className="text-[#00FFF0]">DIGITAL</span>
               <span className="block">FRONTIER</span>
             </h1>
 
             <p className="text-lg md:text-xl text-white/60 max-w-2xl leading-relaxed">
               Self-driven security researcher passionate about{' '}
-              <span className="text-cyan-400 font-semibold">offensive security</span> and{' '}
-              <span className="text-cyan-400 font-semibold">infrastructure hardening</span>.
+              <span className="text-[#00FFF0] font-bold">offensive security</span> and{' '}
+              <span className="text-[#00FFF0] font-bold">infrastructure hardening</span>.
               Building systems to break them—and fix them.
             </p>
 
@@ -46,7 +46,7 @@ const Hero = () => {
 
             <div className="flex items-center gap-6 text-sm font-mono text-white/40">
               <span className="flex items-center gap-2">
-                <span className="status-dot bg-cyan-400" />
+                <span className="status-dot bg-[#39FF14]" />
                 OPEN TO WORK
               </span>
               <span className="w-px h-4 bg-white/10" />
@@ -68,10 +68,10 @@ const Hero = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0f] via-transparent to-transparent" />
               </div>
-              <div className="absolute -bottom-4 -right-4 glass rounded-xl px-4 py-3 animate-float">
+              <div className="absolute -bottom-4 -right-4 bg-[#0a0a0f] border-[3px] border-black px-4 py-3 animate-float" style={{ boxShadow: '4px 4px 0 0 #000' }}>
                 <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse-glow" />
-                  <span className="text-xs font-mono font-bold text-green-400">@SERP3N7</span>
+                  <div className="w-2 h-2 bg-[#39FF14] animate-pulse-glow border border-black" />
+                  <span className="text-xs font-mono font-bold text-[#39FF14]">@SERP3N7</span>
                 </div>
               </div>
             </div>

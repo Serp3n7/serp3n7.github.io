@@ -2,10 +2,10 @@ import { useState, useEffect, useRef } from 'react';
 import { Shield, Bug, FolderKanban, Wrench } from 'lucide-react';
 
 const stats = [
-  { label: 'Years Experience', value: 2, suffix: '+', icon: Shield, color: 'text-cyan-400', glow: 'rgba(0,255,240,0.2)' },
-  { label: 'Bug Bounties', value: 15, suffix: '+', icon: Bug, color: 'text-red-400', glow: 'rgba(255,56,100,0.2)' },
-  { label: 'Projects Built', value: 4, suffix: '', icon: FolderKanban, color: 'text-purple-400', glow: 'rgba(184,0,255,0.2)' },
-  { label: 'Tools Mastered', value: 6, suffix: '+', icon: Wrench, color: 'text-yellow-400', glow: 'rgba(255,237,78,0.2)' },
+  { label: 'Years Experience', value: 2, suffix: '+', icon: Shield, color: 'text-cyan-400' },
+  { label: 'Bug Bounties', value: 15, suffix: '+', icon: Bug, color: 'text-red-400' },
+  { label: 'Projects Built', value: 4, suffix: '', icon: FolderKanban, color: 'text-purple-400' },
+  { label: 'Tools Mastered', value: 6, suffix: '+', icon: Wrench, color: 'text-yellow-400' },
 ];
 
 const AnimatedCounter = ({ value, suffix }) => {
@@ -50,12 +50,8 @@ const StatsBar = () => (
             key={i}
             className="relative group"
           >
-            <div
-              className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl"
-              style={{ background: `radial-gradient(circle at center, ${stat.glow}, transparent 70%)` }}
-            />
-            <div className="relative glass rounded-2xl p-6 md:p-8 text-center">
-              <div className={`w-10 h-10 mx-auto rounded-xl glass flex items-center justify-center mb-4 ${stat.color}`}>
+            <div className="relative glass p-6 md:p-8 text-center border-[3px] border-black" style={{ borderRadius: 0, boxShadow: '4px 4px 0 0 #000' }}>
+              <div className={`w-10 h-10 mx-auto flex items-center justify-center mb-4 border-2 border-black ${stat.color}`} style={{ borderRadius: 0, boxShadow: '2px 2px 0 0 #000' }}>
                 <stat.icon size={20} strokeWidth={1.5} />
               </div>
               <div className={`text-3xl md:text-4xl font-black ${stat.color}`}>

@@ -1,7 +1,7 @@
 import { Crosshair, Shield } from 'lucide-react';
 
 const SkillBadge = ({ label }) => (
-  <span className="tag">{label}</span>
+  <span className="brutal-tag">{label}</span>
 );
 
 const SkillCard = (props) => {

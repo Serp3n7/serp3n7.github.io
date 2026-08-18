@@ -16,7 +16,7 @@ const AboutSection = () => (
   <section id="about" className="py-16 md:py-24">
     <div className="max-w-7xl mx-auto px-4 md:px-8">
       <div className="flex items-center gap-3 mb-12">
-        <div className="w-1 h-8 bg-gradient-to-b from-cyan-400 to-blue-600 rounded-full" />
+        <div className="w-2 h-8 bg-[#00FFF0] border border-black" style={{ borderRadius: 0 }} />
         <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
           About
         </h2>
@@ -37,20 +37,20 @@ const AboutSection = () => (
             </div>
           </div>
 
-          <div className="glass rounded-2xl p-5">
+          <div className="glass p-5 border-[3px] border-black" style={{ borderRadius: 0, boxShadow: '4px 4px 0 0 #000' }}>
             <div className="flex items-center justify-between mb-4">
               <div>
                 <h3 className="font-black text-lg">Sumit Bide</h3>
                 <p className="text-xs font-mono text-cyan-400">@SERP3N7</p>
               </div>
               <div className="flex gap-2">
-                <a href="https://github.com/Serp3n7" target="_blank" rel="noreferrer" className="glass rounded-xl p-2.5 hover:border-cyan-400/30 transition-all duration-300">
+                <a href="https://github.com/Serp3n7" target="_blank" rel="noreferrer" className="bg-[#0a0a0f] border-2 border-black p-2.5 transition-all duration-150 hover:border-[#00FFF0] hover:-translate-x-0.5 hover:-translate-y-0.5" style={{ boxShadow: '2px 2px 0 0 #000', borderRadius: 0 }}>
                   <GitHubIcon />
                 </a>
-                <a href="https://linkedin.com/in/sumit-bide-a52241293" target="_blank" rel="noreferrer" className="glass rounded-xl p-2.5 hover:border-blue-500/30 transition-all duration-300">
+                <a href="https://linkedin.com/in/sumit-bide-a52241293" target="_blank" rel="noreferrer" className="bg-[#0a0a0f] border-2 border-black p-2.5 transition-all duration-150 hover:border-[#00FFF0] hover:-translate-x-0.5 hover:-translate-y-0.5" style={{ boxShadow: '2px 2px 0 0 #000', borderRadius: 0 }}>
                   <LinkedinIcon />
                 </a>
-                <a href="mailto:sumitmpatil19@gmail.com" className="glass rounded-xl p-2.5 hover:border-red-400/30 transition-all duration-300">
+                <a href="mailto:sumitmpatil19@gmail.com" className="bg-[#0a0a0f] border-2 border-black p-2.5 transition-all duration-150 hover:border-[#00FFF0] hover:-translate-x-0.5 hover:-translate-y-0.5" style={{ boxShadow: '2px 2px 0 0 #000', borderRadius: 0 }}>
                   <Mail size={20} />
                 </a>
               </div>
@@ -68,7 +68,7 @@ const AboutSection = () => (
           </div>
 
           <a
-            href="/Sumit-M.-Bide-Resume.pdf"
+            href="/Sumit_M_Bide_resume.pdf"
             download
             className="btn-primary w-full flex items-center justify-center gap-2"
           >
@@ -78,7 +78,7 @@ const AboutSection = () => (
 
         <div className="lg:col-span-3 space-y-8">
           <div className="space-y-4">
-            <h3 className="text-xl md:text-2xl font-black text-gradient-cyan">
+            <h3 className="text-xl md:text-2xl font-black text-[#00FFF0]">
               Cybersecurity Analyst &amp; Penetration Tester
             </h3>
             <p className="text-white/60 leading-relaxed">
@@ -95,10 +95,10 @@ const AboutSection = () => (
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="glass rounded-xl p-5">
+            <div className="glass p-5 border-[3px] border-black" style={{ borderRadius: 0, boxShadow: '3px 3px 0 0 #000' }}>
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg glass flex items-center justify-center flex-shrink-0">
-                  <Award size={18} className="text-cyan-400" />
+                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-[#00FFF0]/10 border-2 border-black">
+                  <Award size={18} className="text-[#00FFF0]" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">CISCO CYBERSECURITY</h4>
@@ -106,10 +106,10 @@ const AboutSection = () => (
                 </div>
               </div>
             </div>
-            <div className="glass rounded-xl p-5">
+            <div className="glass p-5 border-[3px] border-black" style={{ borderRadius: 0, boxShadow: '3px 3px 0 0 #000' }}>
               <div className="flex items-start gap-3">
-                <div className="w-10 h-10 rounded-lg glass flex items-center justify-center flex-shrink-0">
-                  <BookOpen size={18} className="text-blue-400" />
+                <div className="w-10 h-10 flex items-center justify-center flex-shrink-0 bg-[#00B4FF]/10 border-2 border-black">
+                  <BookOpen size={18} className="text-[#00B4FF]" />
                 </div>
                 <div>
                   <h4 className="font-bold text-sm">DIPLOMA IN COMP. ENG</h4>

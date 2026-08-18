@@ -10,7 +10,7 @@ const bounties = [
 const BugBounties = () => (
   <section className="glass-card p-6 md:p-8">
     <div className="flex items-center gap-3 mb-6">
-      <div className="w-12 h-12 rounded-xl glass flex items-center justify-center">
+      <div className="w-12 h-12 flex items-center justify-center bg-[#FF3864]/10 border-2 border-black" style={{ boxShadow: '2px 2px 0 0 #000', borderRadius: 0 }}>
         <Bug size={22} className="text-red-400" strokeWidth={2} />
       </div>
       <div>
@@ -25,7 +25,8 @@ const BugBounties = () => (
           href={bug.link}
           target="_blank"
           rel="noreferrer"
-          className="glass rounded-xl p-4 flex items-center justify-between group glass-hover"
+          className="glass p-4 flex items-center justify-between group border-2 border-black transition-all duration-150 hover:border-[#00FFF0] hover:-translate-x-0.5 hover:-translate-y-0.5"
+          style={{ borderRadius: 0, boxShadow: '3px 3px 0 0 #000' }}
         >
           <span className="font-mono font-bold text-sm">{bug.title}</span>
           <ArrowUpRight
