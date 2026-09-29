@@ -1,68 +1,82 @@
 import { useState, useEffect, useRef } from 'react';
-import { Shield, Bug, FolderKanban, Wrench } from 'lucide-react';
 
 const stats = [
-  { label: 'Years Experience', value: 2, suffix: '+', icon: Shield, color: 'text-cyan-400' },
-  { label: 'Bug Bounties', value: 15, suffix: '+', icon: Bug, color: 'text-red-400' },
-  { label: 'Projects Built', value: 4, suffix: '', icon: FolderKanban, color: 'text-purple-400' },
-  { label: 'Tools Mastered', value: 6, suffix: '+', icon: Wrench, color: 'text-yellow-400' },
+  { label: 'Years experience', value: 2, suffix: '+' },
+  { label: 'Bug bounties', value: 15, suffix: '+' },
+  { label: 'Projects built', value: 4, suffix: '' },
+  { label: 'Tools mastered', value: 6, suffix: '+' },
 ];
 
-const AnimatedCounter = ({ value, suffix }) => {
-  const [count, setCount] = useState(0);
+/**
+ * Counts up when the row first scrolls into view. Collapses to the final
+ * value immediately under prefers-reduced-motion.
+ */
+const Counter = ({ value, suffix }) => {
+  const reduceMotion = () =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  const [display, setDisplay] = useState(() => (reduceMotion() ? value : 0));
   const ref = useRef(null);
   const done = useRef(false);
 
   useEffect(() => {
+    if (reduceMotion() || done.current || !ref.current) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !done.current) {
-          done.current = true;
-          const duration = 1500;
-          const step = Math.max(1, Math.floor(value / (duration / 16)));
-          const timer = setInterval(() => {
-            setCount((prev) => {
-              const next = prev + step;
-              if (next >= value) {
-                clearInterval(timer);
-                return value;
-              }
-              return next;
-            });
-          }, 16);
-        }
+        if (!entry.isIntersecting || done.current) return;
+        done.current = true;
+
+        const duration = 1400;
+        const step = Math.max(1, Math.floor(value / (duration / 16)));
+        const timer = setInterval(() => {
+          setDisplay((prev) => {
+            const next = prev + step;
+            if (next >= value) {
+              clearInterval(timer);
+              return value;
+            }
+            return next;
+          });
+        }, 16);
+        observer.disconnect();
       },
       { threshold: 0.5 }
     );
-    if (ref.current) observer.observe(ref.current);
+
+    observer.observe(ref.current);
     return () => observer.disconnect();
   }, [value]);
 
-  return <span ref={ref}>{count}{suffix}</span>;
+  return (
+    <span ref={ref}>
+      {display}
+      {suffix}
+    </span>
+  );
 };
 
+/**
+ * A single machined band: four readings, hairline-divided, no icons.
+ */
 const StatsBar = () => (
-  <section id="stats" className="py-16 md:py-20">
-    <div className="max-w-7xl mx-auto px-4 md:px-8">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-        {stats.map((stat, i) => (
-          <div
-            key={i}
-            className="relative group"
-          >
-            <div className="relative glass p-6 md:p-8 text-center border-[3px] border-black" style={{ borderRadius: 0, boxShadow: '4px 4px 0 0 #000' }}>
-              <div className={`w-10 h-10 mx-auto flex items-center justify-center mb-4 border-2 border-black ${stat.color}`} style={{ borderRadius: 0, boxShadow: '2px 2px 0 0 #000' }}>
-                <stat.icon size={20} strokeWidth={1.5} />
+  <section id="stats" aria-label="Career stats">
+    <div className="mx-auto max-w-content px-4 md:px-8">
+      <div className="shell">
+        <div className="shell-core overflow-hidden">
+          <div className="grid grid-cols-2 divide-x divide-y divide-line md:grid-cols-4 md:divide-y-0">
+            {stats.map((stat) => (
+              <div key={stat.label} className="flex flex-col gap-1.5 px-6 py-7">
+                <span className="font-heading text-3xl font-black md:text-4xl">
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                </span>
+                <span className="font-mono text-[11px] uppercase tracking-wider text-muted">
+                  {stat.label}
+                </span>
               </div>
-              <div className={`text-3xl md:text-4xl font-black ${stat.color}`}>
-                <AnimatedCounter value={stat.value} suffix={stat.suffix} />
-              </div>
-              <p className="mt-2 text-xs md:text-sm font-mono text-white/40 uppercase tracking-wider">
-                {stat.label}
-              </p>
-            </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
     </div>
   </section>

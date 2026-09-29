@@ -1,59 +1,67 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
-import Background from './components/Background';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import StatsBar from './components/StatsBar';
 import AboutSection from './components/AboutSection';
-import Terminal from './components/Terminal';
+import Capabilities from './components/Capabilities';
 import BugBounties from './components/BugBounties';
 import Skills from './components/Skills';
-import QuoteSection from './components/QuoteSection';
 import Projects from './components/Projects';
 import Footer from './components/Footer';
+import LiquidBackdrop from './components/LiquidBackdrop';
+import { Reveal } from './hooks/Reveal';
 
 const App = () => (
   <HelmetProvider>
     <Helmet>
-      <title>Sumit Bide – Cybersecurity Analyst & Penetration Tester | SERP3N7</title>
-      <meta name="description" content="Cybersecurity analyst and penetration tester specializing in offensive security, red teaming, and infrastructure hardening. Home lab architect, bug bounty hunter, and Kali NetHunter kernel contributor." />
+      <title>Sumit Bide | Cybersecurity Analyst &amp; Penetration Tester | SERP3N7</title>
+      <meta
+        name="description"
+        content="Penetration tester and cybersecurity analyst. Vulnerability assessment, red teaming, and infrastructure hardening. Defence, reimagined."
+      />
     </Helmet>
 
-    <Background />
+    <LiquidBackdrop />
     <Header />
 
     <main>
       <Hero />
       <StatsBar />
-      <AboutSection />
+      <Reveal>
+        <AboutSection />
+      </Reveal>
+      <Reveal>
+        <Capabilities />
+      </Reveal>
 
-      <section id="work" className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="flex items-center gap-3 mb-12">
-            <div className="w-2 h-8 bg-[#00FFF0] border border-black" style={{ borderRadius: 0 }} />
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight">
-              Capabilities
-            </h2>
-          </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <Terminal />
-            <div className="space-y-6">
-              <BugBounties />
-              <Skills />
+      <Reveal>
+        <section
+          aria-label="Disclosures and skills"
+          className="py-24 md:py-32"
+        >
+          <div className="mx-auto max-w-content px-4 md:px-8">
+            <div className="grid grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
+              <div className="lg:col-span-5">
+                <BugBounties />
+              </div>
+              <div className="lg:col-span-7">
+                <Skills />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
 
-      <QuoteSection />
-
-      <section className="pb-24">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <Projects />
-        </div>
-      </section>
-
-      <Footer />
+      <Reveal>
+        <section aria-label="Work" className="pb-24 md:pb-32">
+          <div className="mx-auto max-w-content px-4 md:px-8">
+            <Projects />
+          </div>
+        </section>
+      </Reveal>
     </main>
+
+    <Footer />
   </HelmetProvider>
 );
 

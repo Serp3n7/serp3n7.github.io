@@ -1,85 +1,96 @@
-import { Activity, Terminal, Lock, BookOpen } from 'lucide-react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 
-const projects = [
+const PROJECTS = [
   {
     title: 'Enterprise Home Lab',
-    desc: 'Multi-purpose server environment on UNRAID using repurposed gaming hardware. Hosts Plex, SMB sharing, and segregated virtual networks for pentesting & SIEM simulations.',
-    tags: ['UNRAID', 'Docker', 'SIEM', 'Network Seg'],
-    icon: Activity,
-    color: 'text-green-400',
-    badge: 'HARDWARE',
+    desc: 'Multi-purpose server on UNRAID using repurposed gaming hardware. Hosts Plex, SMB sharing, and segregated virtual networks for penetration testing and SIEM simulation.',
+    tags: ['UNRAID', 'Docker', 'SIEM', 'Network segmentation'],
     href: 'https://github.com/Serp3n7',
   },
   {
-    title: 'Kali NetHunter Kernel Dev',
-    desc: 'Contributed custom kernels and installers for REDMI NOTE 4 (MIDO). Enabled advanced offensive security features on mobile hardware.',
+    title: 'Kali NetHunter Kernel',
+    desc: 'Contributed custom kernels and installers for the Redmi Note 4 (MIDO), unlocking advanced testing features on consumer mobile hardware.',
     tags: ['Kernel', 'Android', 'Kali', 'ARM'],
-    icon: Terminal,
-    color: 'text-purple-400',
-    badge: 'OPEN SOURCE',
     href: 'https://github.com/Serp3n7',
   },
   {
     title: 'Secure Banking System',
-    desc: 'Full-stack banking app with "security first" approach. Robust controls against web vulnerabilities including SQLi, XSS, and CSRF.',
-    tags: ['SHA-256', 'JWT Auth', 'CORS', 'SQLi Prot'],
-    icon: Lock,
-    color: 'text-yellow-400',
-    badge: 'FULL STACK',
+    desc: 'Full-stack banking application built with a security-first approach, defending against SQL injection, XSS, and CSRF.',
+    tags: ['SHA-256', 'JWT', 'CORS', 'SQLi protection'],
     href: 'https://github.com/Serp3n7/banking-system',
   },
   {
     title: 'Online Library System',
-    desc: 'Secure management system with PHP & MySQL. Features strict input validation, RBAC, and comprehensive access controls.',
+    desc: 'Secure management system in PHP and MySQL with strict input validation, role-based access control, and comprehensive authorization.',
     tags: ['PHP', 'MySQL', 'RBAC', 'Validation'],
-    icon: BookOpen,
-    color: 'text-blue-400',
-    badge: 'WEB APP',
     href: 'https://github.com/Serp3n7/library-management-system',
   },
 ];
 
+/** One featured project, then three compact cells. Asymmetric, no empty tracks. */
+const SPAN = ['md:col-span-6', 'md:col-span-2', 'md:col-span-2', 'md:col-span-2'];
+
 const Projects = () => (
-  <section id="work" className="space-y-6">
-    <div className="flex items-center gap-3 mb-2">
-      <div className="w-2 h-6 bg-[#00FFF0] border border-black" style={{ borderRadius: 0 }} />
-      <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight">
-        Featured Projects
-      </h2>
+  <section id="work" aria-labelledby="work-title">
+    <div className="flex items-center gap-4">
+      <p className="eyebrow" id="work-title">
+        Selected work
+      </p>
+      <div className="rule flex-1" />
     </div>
 
-    <div className="grid gap-6">
-      {projects.map((project, i) => (
-        <a
-          key={i}
-          href={project.href}
-          target="_blank"
-          rel="noreferrer"
-          className="glass-card p-6 md:p-8 block group"
-        >
-          <div className="flex items-start justify-between mb-6">
-            <div className={`w-14 h-14 flex items-center justify-center border-2 border-black ${project.color}`} style={{ borderRadius: 0, boxShadow: '2px 2px 0 0 #000' }}>
-              <project.icon size={24} strokeWidth={1.5} />
+    <ul className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-6">
+      {PROJECTS.map((project, i) => (
+        <li key={project.title} className={SPAN[i]}>
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noreferrer"
+            className="group block h-full"
+          >
+            <div className="shell h-full">
+              <div
+                className={`shell-core flex h-full flex-col p-6 transition-transform duration-500 [transition-timing-function:var(--ease-spring)] group-hover:-translate-y-2 md:p-7 ${
+                  i === 0 ? 'md:justify-between' : ''
+                }`}
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <h3
+                    className={`font-heading font-bold tracking-tight ${
+                      i === 0 ? 'text-2xl md:text-3xl' : 'text-xl'
+                    }`}
+                  >
+                    {project.title}
+                  </h3>
+                  <span
+                    className="icon-island shrink-0 shadow-[inset_0_0_0_1px_var(--line-strong)] group-hover:bg-body group-hover:text-inverted"
+                    aria-hidden="true"
+                  >
+                    <ArrowUpRight size={18} />
+                  </span>
+                </div>
+
+                <p
+                  className={`mt-4 text-sm leading-relaxed text-muted ${
+                    i === 0 ? 'max-w-2xl md:text-base' : ''
+                  }`}
+                >
+                  {project.desc}
+                </p>
+
+                <ul className="mt-auto flex flex-wrap gap-x-4 gap-y-2 border-t border-line pt-5 md:mt-8">
+                  {project.tags.map((tag) => (
+                    <li key={tag} className="font-mono text-xs text-muted">
+                      {tag}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-            <span className="brutal-tag text-xs">{project.badge}</span>
-          </div>
-
-          <h3 className="text-2xl md:text-3xl font-black mb-3 group-hover:text-[#00FFF0] transition-colors">
-            {project.title}
-          </h3>
-
-          <p className="text-white/60 leading-relaxed mb-5">
-            {project.desc}
-          </p>
-
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span key={tag} className="tag text-xs">{tag}</span>
-            ))}
-          </div>
-        </a>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   </section>
 );
 

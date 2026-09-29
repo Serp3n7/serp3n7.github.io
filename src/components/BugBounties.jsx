@@ -1,41 +1,50 @@
-import { Bug, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 
 const bounties = [
-  { title: 'Hardware Hacking & IoT', link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_cybersecurity-homelab-hardwarehacking-activity-7405898404616310784-Al4e' },
-  { title: 'Red Teaming & AppSec', link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_redteam-hacking-appsec-activity-7405465326357762048-FzIo' },
-  { title: 'Logic Bug Disclosure', link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-cybersecurity-logicbug-activity-7403932985844023296-knTS' },
-  { title: 'Ethical Hacking Report', link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-ethicalhacking-cybersecurity-activity-7403903878141943808-UYYA' },
+  {
+    title: 'Hardware hacking & IoT',
+    link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_cybersecurity-homelab-hardwarehacking-activity-7405898404616310784-Al4e',
+  },
+  {
+    title: 'Red teaming & AppSec',
+    link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_redteam-hacking-appsec-activity-7405465326357762048-FzIo',
+  },
+  {
+    title: 'Logic bug disclosure',
+    link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-cybersecurity-logicbug-activity-7403932985844023296-knTS',
+  },
+  {
+    title: 'Ethical hacking report',
+    link: 'https://www.linkedin.com/posts/sumit-bide-a52241293_bugbounty-ethicalhacking-cybersecurity-activity-7403903878141943808-UYYA',
+  },
 ];
 
 const BugBounties = () => (
-  <section className="glass-card p-6 md:p-8">
-    <div className="flex items-center gap-3 mb-6">
-      <div className="w-12 h-12 flex items-center justify-center bg-[#FF3864]/10 border-2 border-black" style={{ boxShadow: '2px 2px 0 0 #000', borderRadius: 0 }}>
-        <Bug size={22} className="text-red-400" strokeWidth={2} />
-      </div>
-      <div>
-        <h3 className="font-black text-xl uppercase">Bug Bounty Hall of Fame</h3>
-        <p className="text-sm font-mono text-white/40">Vulnerability Disclosures</p>
-      </div>
-    </div>
-    <div className="grid gap-3">
-      {bounties.map((bug, i) => (
-        <a
-          key={i}
-          href={bug.link}
-          target="_blank"
-          rel="noreferrer"
-          className="glass p-4 flex items-center justify-between group border-2 border-black transition-all duration-150 hover:border-[#00FFF0] hover:-translate-x-0.5 hover:-translate-y-0.5"
-          style={{ borderRadius: 0, boxShadow: '3px 3px 0 0 #000' }}
-        >
-          <span className="font-mono font-bold text-sm">{bug.title}</span>
-          <ArrowUpRight
-            size={18}
-            className="text-white/30 group-hover:text-cyan-400 transition-all duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-          />
-        </a>
+  <section aria-labelledby="bounties-title">
+    <h2
+      id="bounties-title"
+      className="font-heading text-xl font-bold uppercase tracking-tight md:text-2xl"
+    >
+      Disclosure log
+    </h2>
+
+    <ul className="mt-5 space-y-2.5">
+      {bounties.map((bug) => (
+        <li key={bug.link}>
+          <a
+            href={bug.link}
+            target="_blank"
+            rel="noreferrer"
+            className="row-interactive group"
+          >
+            <span className="font-mono text-sm">{bug.title}</span>
+            <span className="icon-island" aria-hidden="true">
+              <ArrowUpRight size={16} />
+            </span>
+          </a>
+        </li>
       ))}
-    </div>
+    </ul>
   </section>
 );
 

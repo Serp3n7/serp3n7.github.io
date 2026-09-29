@@ -1,42 +1,37 @@
-import { Crosshair, Shield } from 'lucide-react';
-
-const SkillBadge = ({ label }) => (
-  <span className="brutal-tag">{label}</span>
-);
-
-const SkillCard = (props) => {
-  const IconComponent = props.icon;
-  return (
-  <div className="glass-card p-6 space-y-4">
-    <div className="flex items-center gap-3">
-      <div className="w-10 h-10 rounded-xl glass flex items-center justify-center">
-        <IconComponent size={18} className={props.color} />
-      </div>
-      <h3 className="font-bold text-sm uppercase tracking-wider">{props.title}</h3>
-    </div>
-    <div className="flex flex-wrap gap-2">
-      {props.skills.map((s) => (
-        <SkillBadge key={s} label={s} />
-      ))}
-    </div>
-  </div>
-);
-};
+const SKILLS = [
+  {
+    title: 'Red team operations',
+    body: 'Planning and executing controlled assessments of web applications, networks, and infrastructure. Delivering findings with reproduction steps and remediation guidance.',
+  },
+  {
+    title: 'Blue team & infrastructure',
+    body: 'Hardening Linux and containerised environments, building SIEM pipelines, and designing segregated lab networks to simulate real-world attack surfaces.',
+  },
+];
 
 const Skills = () => (
-  <section id="skills" className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <SkillCard
-      title="Red Team Ops"
-      icon={Crosshair}
-      color="text-red-400"
-      skills={['Burp Suite', 'Metasploit', 'Nmap', 'Wireshark', 'OWASP', 'Social Eng']}
-    />
-    <SkillCard
-      title="Blue Team & Infra"
-      icon={Shield}
-      color="text-cyan-400"
-      skills={['Linux Hardening', 'Splunk SIEM', 'Docker', 'UNRAID', 'Bash', 'Network Sec']}
-    />
+  <section id="skills" aria-labelledby="skills-title">
+    <h2
+      id="skills-title"
+      className="font-heading text-xl font-bold uppercase tracking-tight md:text-2xl"
+    >
+      How I work
+    </h2>
+
+    <div className="mt-5 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+      {SKILLS.map((skill) => (
+        <div key={skill.title} className="shell">
+          <div className="shell-core h-full p-6">
+            <h3 className="font-heading text-sm font-bold uppercase tracking-wider">
+              {skill.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              {skill.body}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
   </section>
 );
 
